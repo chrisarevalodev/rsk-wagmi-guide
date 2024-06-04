@@ -13,6 +13,7 @@ Welcome! This guide will introduce you to developing on Rootstock using the Wagm
 5. [Prerequisites](#prerequisites)
 6. [Sample Implementation](#sample-implementation)
 7. [Recap and Recommendations](#recap-and-recommendations)
+8. [Account abstraction](#Account-abstraction)
 
 ## Developing on Rootstock
 Rootstock (RSK) is a smart contract platform secured by the Bitcoin network. It enables the creation of decentralized applications (dApps) with the security and stability of Bitcoin. Developing on Rootstock allows you to leverage its compatibility with the Ethereum Virtual Machine (EVM) and benefit from Bitcoin's robust security model.
@@ -335,10 +336,53 @@ In this guide, we have covered the following key points:
 - Integrating Wagmi with RainbowKit for enhanced wallet management.
 - Implementing sample code to interact with smart contracts using Wagmi hooks and RainbowKit components.
 
+
+
 ### Recommendations
 - **Make the Most of Hooks**: Leverage Wagmi's hooks to simplify your development process. Utilize hooks like `useAccount`, `useReadContract`, and `useWriteContract` to interact seamlessly with your smart contracts.
 - **Read the Documentation**: Thoroughly review Wagmi's [documentation](https://wagmi.sh/docs) and RainbowKit's [documentation](https://www.rainbowkit.com/docs) for deeper insights and advanced features.
-- **Join our Community**: Engage with our community on [Discord](http://discord.gg/rootstock) to ask questions, share knowledge, and stay updated with the latest developments. Also check the [DevPortal](https://dev.rootstock.io/) for the latest news on development tool releases and more.
+
+# Account abstraction
+## Etherspot
+
+
+<p align="center">
+  <img src="https://public.etherspot.io/assets/etherspot.gif" alt="Etherspot Logo" width= 150 height=150>
+</p>
+
+[Account Abstraction on Rootstock]()
+
+# Etherspot Prime SDK!
+
+### Step 1. Install Etherspot Prime SDK with this command
+
+``` sh
+yarn add @etherspot/prime-sdk
+```
+
+
+### Step 2. Import the Etherspot Prime SDK.
+
+```ts
+  const primeSdk = new PrimeSdk(
+                { privateKey: eoaPrivateKey },
+                {
+                    chainId: 31,
+                    bundlerProvider: new EtherspotBundler(
+                        31,
+                        bundlerApiKey,
+                        customBundlerUrl
+                    ),
+                }
+            );
+```
+
+  
+
+
+
+ # Join our Community
+  Engage with our community on [Discord](http://discord.gg/rootstock) to ask questions, share knowledge, and stay updated with the latest developments. Also check the [DevPortal](https://dev.rootstock.io/) for the latest news on development tool releases and more.
 
 Thank you for following along with this guide! We hope you found it helpful and informative. Feel free to reach out if you have any questions or need further assistance in your blockchain development journey on Rootstock.
 

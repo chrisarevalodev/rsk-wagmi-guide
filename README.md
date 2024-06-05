@@ -13,6 +13,7 @@ Welcome! This guide will introduce you to developing on Rootstock using the Wagm
 5. [Prerequisites](#prerequisites)
 6. [Sample Implementation](#sample-implementation)
 7. [Recap and Recommendations](#recap-and-recommendations)
+8. [Account abstraction](#Account-abstraction)
 
 ## Developing on Rootstock
 Rootstock (RSK) is a smart contract platform secured by the Bitcoin network. It enables the creation of decentralized applications (dApps) with the security and stability of Bitcoin. Developing on Rootstock allows you to leverage its compatibility with the Ethereum Virtual Machine (EVM) and benefit from Bitcoin's robust security model.
@@ -335,10 +336,65 @@ In this guide, we have covered the following key points:
 - Integrating Wagmi with RainbowKit for enhanced wallet management.
 - Implementing sample code to interact with smart contracts using Wagmi hooks and RainbowKit components.
 
+
+
 ### Recommendations
 - **Make the Most of Hooks**: Leverage Wagmi's hooks to simplify your development process. Utilize hooks like `useAccount`, `useReadContract`, and `useWriteContract` to interact seamlessly with your smart contracts.
 - **Read the Documentation**: Thoroughly review Wagmi's [documentation](https://wagmi.sh/docs) and RainbowKit's [documentation](https://www.rainbowkit.com/docs) for deeper insights and advanced features.
-- **Join our Community**: Engage with our community on [Discord](http://discord.gg/rootstock) to ask questions, share knowledge, and stay updated with the latest developments. Also check the [DevPortal](https://dev.rootstock.io/) for the latest news on development tool releases and more.
+
+# Account abstraction
+## Etherspot
+
+
+<p align="center">
+  <img src="https://public.etherspot.io/assets/etherspot.gif" alt="Etherspot Logo" width= 150 height=150>
+</p>
+
+[Account Abstraction on Rootstock](https://etherspot.fyi/prime-sdk/other-chains/getting-started-on-rootstock)
+
+# Etherspot Prime SDK!
+Etherspot is a multi-chain ERC-4337 development platform that provides solutions for dApps, EVM-compatible rollups, and L1/L2 chains to deliver frictionless Web3 UX for their end-users. Etherspot leverages Account Abstraction to enable smooth onboarding for new users and abstract away complex blockchain operations. me SDK with this command
+
+``` sh
+yarn add @etherspot/prime-sdk
+```
+
+
+### Step 1. Etherspot Prime SDK instanciation.
+[Etherspot SDK instanciation](https://etherspot.fyi/prime-sdk/instantiation)
+```ts
+import { PrimeSdk, EtherspotBundler } from "@etherspot/prime-sdk";
+ 
+ const primeSdk = new PrimeSdk(
+                { privateKey: eoaPrivateKey },
+                {
+                    chainId: 31,
+                    bundlerProvider: new EtherspotBundler(
+                        31,
+                        bundlerApiKey, //'eyJvcmciOiI2NTIzZjY5MzUwOTBmNzAwMDFiYjJkZWIiLCJpZCI6IjMxMDZiOGY2NTRhZTRhZTM4MGVjYjJiN2Q2NDMzMjM4IiwiaCI6Im11cm11cjEyOCJ9'S
+                        BundlerUrl // "https://rootstocktestnet-bundler.etherspot.io/"
+                    ),
+                }
+            );
+```
+
+- **chainId**: Rootstock testnet.
+- **bundlerApiKey**: Etherspot API key (The one provided in the previous snippet is for development purposes).
+- **BundlerUrl**: Rootsock etherspot's bundler link.
+
+
+
+The Prime SDK unlocks a number of easy to implement Account Abstraction features for your dapp or network such as:
+
+- [Transaction batching ](https://etherspot.fyi/prime-sdk/batching-transactions)
+- [Pay for transactions with ERC20 Tokens](https://etherspot.fyi/arka/pay-with-erc20)
+- [Social logins](https://etherspot.fyi/prime-sdk/examples/social-logins)
+- [Fiat on/off ramp](https://etherspot.fyi/prime-sdk/fiat-onramp)
+
+Find example of the fucnitonalities implementations at [Github](https://etherspot.fyi/prime-sdk/examples/) or contact the Etherspot team at [Discord](https://discord.com/invite/GAkYj6m5Uh)
+
+ # Join our Community
+  Engage with our community on [Discord](http://discord.gg/rootstock) to ask questions, share knowledge, and stay updated with the latest developments. Also check the [DevPortal](https://dev.rootstock.io/) for the latest news on development tool releases and more.
 
 Thank you for following along with this guide! We hope you found it helpful and informative. Feel free to reach out if you have any questions or need further assistance in your blockchain development journey on Rootstock.
 

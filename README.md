@@ -350,36 +350,48 @@ In this guide, we have covered the following key points:
   <img src="https://public.etherspot.io/assets/etherspot.gif" alt="Etherspot Logo" width= 150 height=150>
 </p>
 
-[Account Abstraction on Rootstock]()
+[Account Abstraction on Rootstock](https://etherspot.fyi/prime-sdk/other-chains/getting-started-on-rootstock)
 
 # Etherspot Prime SDK!
-
-### Step 1. Install Etherspot Prime SDK with this command
+Etherspot is a multi-chain ERC-4337 development platform that provides solutions for dApps, EVM-compatible rollups, and L1/L2 chains to deliver frictionless Web3 UX for their end-users. Etherspot leverages Account Abstraction to enable smooth onboarding for new users and abstract away complex blockchain operations. me SDK with this command
 
 ``` sh
 yarn add @etherspot/prime-sdk
 ```
 
 
-### Step 2. Import the Etherspot Prime SDK.
-
+### Step 1. Etherspot Prime SDK instanciation.
+[Etherspot SDK instanciation](https://etherspot.fyi/prime-sdk/instantiation)
 ```ts
-  const primeSdk = new PrimeSdk(
+import { PrimeSdk, EtherspotBundler } from "@etherspot/prime-sdk";
+ 
+ const primeSdk = new PrimeSdk(
                 { privateKey: eoaPrivateKey },
                 {
                     chainId: 31,
                     bundlerProvider: new EtherspotBundler(
                         31,
-                        bundlerApiKey,
-                        customBundlerUrl
+                        bundlerApiKey, //'eyJvcmciOiI2NTIzZjY5MzUwOTBmNzAwMDFiYjJkZWIiLCJpZCI6IjMxMDZiOGY2NTRhZTRhZTM4MGVjYjJiN2Q2NDMzMjM4IiwiaCI6Im11cm11cjEyOCJ9'S
+                        BundlerUrl // "https://rootstocktestnet-bundler.etherspot.io/"
                     ),
                 }
             );
 ```
 
-  
+- **chainId**: Rootstock testnet.
+- **bundlerApiKey**: Etherspot API key (The one provided in the previous snippet is for development purposes).
+- **BundlerUrl**: Rootsock etherspot's bundler link.
 
 
+
+The Prime SDK unlocks a number of easy to implement Account Abstraction features for your dapp or network such as:
+
+- [Transaction batching ](https://etherspot.fyi/prime-sdk/batching-transactions)
+- [Pay for transactions with ERC20 Tokens](https://etherspot.fyi/arka/pay-with-erc20)
+- [Social logins](https://etherspot.fyi/prime-sdk/examples/social-logins)
+- [Fiat on/off ramp](https://etherspot.fyi/prime-sdk/fiat-onramp)
+
+Find example of the fucnitonalities implementations at [Github](https://etherspot.fyi/prime-sdk/examples/) or contact the Etherspot team at [Discord](https://discord.com/invite/GAkYj6m5Uh)
 
  # Join our Community
   Engage with our community on [Discord](http://discord.gg/rootstock) to ask questions, share knowledge, and stay updated with the latest developments. Also check the [DevPortal](https://dev.rootstock.io/) for the latest news on development tool releases and more.
